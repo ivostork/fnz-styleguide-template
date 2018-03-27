@@ -1,0 +1,16 @@
+$primary:#EEB200;
+$accent:#502F7E;
+
+//color with transparency loooks better on different backgrounds
+// Sketch shows HSB(old format) and RGBA
+//dark text
+$primary-text-d:rgba(0,0,0,.87);
+$secondary-text-d:rgba(0,0,0,.54);
+$hint-text-d:rgba(0,0,0,.38);
+$divider-d:rgba(0,0,0,.12);
+
+//light text
+$primary-text-l:rgba(255,255,255,1);
+$secondary-text-l:rgba(255,255,255,.7);
+$hint-text-l:rgba(255,255,255,.5);
+$divider-l:rgba(255,255,255,.12);
