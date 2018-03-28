@@ -1,15 +1,12 @@
-const merge = require('webpack-merge');
-const path = require('path');
-const common = require('./webpack.common.js');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-module.exports = merge(common, {
+module.exports = {
   entry: {
     app: './src/index.js'
   },
   plugins:[
-    new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({  
       template: './src/index.html',      
       inject: true
@@ -19,9 +16,8 @@ module.exports = merge(common, {
     filename: '[name].js',
     path: path.resolve(__dirname, './../web/')
   },
-  devtool: 'inline-source-map',
+  devtool: 'source-map',
   devServer: {
-    contentBase: path.resolve(__dirname, './src/content/img'),
     port: 9000,
     hot: true,
     compress:true,
@@ -39,4 +35,4 @@ module.exports = merge(common, {
       }
     ]
   }
-});
+};
