@@ -9,8 +9,16 @@ module.exports = merge(common, {
     app: './src/index.js'
   },
   plugins:[
-    new webpack.HotModuleReplacementPlugin(),    
+    new webpack.HotModuleReplacementPlugin(),
+    new HtmlWebpackPlugin({  
+      template: './src/index.html',      
+      inject: true
+    }),    
   ],
+  output: {
+    filename: '[name].js',
+    path: path.resolve(__dirname, './../web/')
+  },
   devtool: 'inline-source-map',
   devServer: {
     contentBase: path.resolve(__dirname, './src/content/img'),
@@ -23,12 +31,10 @@ module.exports = merge(common, {
   module: {
     rules: [
       {
-        test: /\.scss$/,
+        test: /\.css$/,
         use: [
           'style-loader',
-          'css-loader', 
-          { loader: 'postcss-loader', options: { sourceMap: true }},
-          { loader: "sass-loader", options: { sourceMap: true }}
+          'css-loader'
         ]
       }
     ]
